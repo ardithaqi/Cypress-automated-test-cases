@@ -1,9 +1,9 @@
 function groupNamesIteam(groupName) {
     cy.contains("a", groupName).then((menu) => {
       cy.wrap(menu)
-        .find(".expand-state g g")
-        .invoke("attr", "data-name")
-        .then((expandIcon) => {
+         .find(".expand-state g g")
+         .invoke("attr", "data-name")
+         .then((expandIcon) => {
           if (expandIcon.includes("chevron-left")) {
             cy.wrap(menu).click();
           }
@@ -13,23 +13,23 @@ function groupNamesIteam(groupName) {
 
 export class NavigationPage{
 
-    layoutStepperPage() {
-        groupNamesIteam("Layout");
-        cy.contains("Stepper").click();
+      layoutStepperPage() {
+         groupNamesIteam("Layout");
+         cy.contains("Stepper").click();
       }
       layoutAccordionPage() {
-        groupNamesIteam("Layout");
-        cy.contains("Accordion").click();
+         groupNamesIteam("Layout");
+         cy.contains("Accordion").click();
       }
       
-    modalOverlaysPage() {
-        cy.contains("Modal").click();
-        cy.contains("Dialog").click();
+      modalOverlaysPage() {
+         cy.contains("Modal").click();
+         cy.contains("Dialog").click();
     }
 
-    smartTablePage() {
-        cy.contains("Tables").click();
-        cy.contains("Smart Table").click();
+      smartTablePage() {
+         cy.contains("Tables").click();
+         cy.contains("Smart Table").click();
     }
     
 
