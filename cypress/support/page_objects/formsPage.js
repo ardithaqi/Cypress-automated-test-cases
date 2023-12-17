@@ -100,6 +100,9 @@ export class FormsPage{
 
     }
 
+    datepickerSection(){
+        cy.contains('nb-card', 'Common Datepicker').find('input').click();
+    }
 }
 
 export const onFormsPage = new FormsPage();

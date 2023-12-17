@@ -26,9 +26,10 @@ describe("Test with Page Objects", () => {
   });
 
   it.only('forms Page',()=>{
+    // navigateTo.formsLayoutPage();
+    // onFormsPage.formsSection();
     navigateTo.formsLayoutPage();
-    onFormsPage.formsSection();
-      
+    onFormsPage.datepickerSection();
   })
 
 })

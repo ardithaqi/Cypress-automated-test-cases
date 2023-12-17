@@ -1,4 +1,4 @@
-function groupNamesIteam(groupName) {
+function groupNamesItem(groupName) {
     cy.contains("a", groupName).then((menu) => {
       cy.wrap(menu)
          .find(".expand-state g g")
@@ -14,17 +14,21 @@ function groupNamesIteam(groupName) {
 export class NavigationPage{
 
       layoutStepperPage() {
-         groupNamesIteam("Layout");
+         groupNamesItem("Layout");
          cy.contains("Stepper").click();
       }
       layoutAccordionPage() {
-         groupNamesIteam("Layout");
+         groupNamesItem("Layout");
          cy.contains("Accordion").click();
       }
 
       formsLayoutPage(){
-        groupNamesIteam('Forms');
+        groupNamesItem('Forms');
         cy.contains('Form Layout').click();
+      }
+      formsLayoutPage(){
+        groupNamesItem('Forms')
+        cy.contains('Datepicker').click();
       }
       
       modalOverlaysPage() {
