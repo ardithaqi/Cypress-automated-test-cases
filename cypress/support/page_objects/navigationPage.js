@@ -21,6 +21,11 @@ export class NavigationPage{
          groupNamesIteam("Layout");
          cy.contains("Accordion").click();
       }
+
+      formsLayoutPage(){
+        groupNamesIteam('Forms');
+        cy.contains('Form Layout').click();
+      }
       
       modalOverlaysPage() {
          cy.contains("Modal").click();

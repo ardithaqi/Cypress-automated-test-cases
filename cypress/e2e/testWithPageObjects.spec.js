@@ -1,5 +1,6 @@
 /// <reference types="cypress" />
 
+const { onFormsPage } = require("../support/page_objects/formsPage");
 const { onLayoutsPage } = require("../support/page_objects/layoutsPage");
 const { navigateTo } = require("../support/page_objects/navigationPage");
 
@@ -15,7 +16,7 @@ describe("Test with Page Objects", () => {
     navigateTo.smartTablePage();
   });
 
-  it("layoutPage", () => {
+  it("layout Page", () => {
     navigateTo.layoutStepperPage();
     onLayoutsPage.stepperFirstSection();
     onLayoutsPage.stepperSecondSection();
@@ -23,5 +24,11 @@ describe("Test with Page Objects", () => {
     navigateTo.layoutAccordionPage();
     onLayoutsPage.accordionSection();
   });
+
+  it.only('forms Page',()=>{
+    navigateTo.formsLayoutPage();
+    onFormsPage.formsSection();
+      
+  })
 
 })
