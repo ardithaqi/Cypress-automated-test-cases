@@ -34,10 +34,12 @@ describe("Test with Page Objects", () => {
   })
 
   it.only('modal Page', ()=>{
-    navigateTo.modalDialogPage();
+    // navigateTo.modalDialogPage();
     // onModalPage.dialogSection();
-    navigateTo.modalWindowPage();
-    onModalPage.windowSection();
+    // navigateTo.modalWindowPage();
+    // onModalPage.windowSection();
+    navigateTo.modalPopoverPage();
+    onModalPage.popoverSection();
   })
 
 })

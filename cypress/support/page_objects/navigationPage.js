@@ -39,6 +39,10 @@ export class NavigationPage{
         groupNamesItem('Modal')
         cy.contains('Window').click();
       }
+      modalPopoverPage(){
+        groupNamesItem('Modal');
+        cy.contains('Popover').click();
+      }
 
       smartTablePage() {
          cy.contains("Tables").click();
