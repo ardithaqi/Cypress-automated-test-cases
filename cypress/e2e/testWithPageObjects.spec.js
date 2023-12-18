@@ -29,13 +29,15 @@ describe("Test with Page Objects", () => {
   it('forms Page',()=>{
     navigateTo.formsLayoutPage();
     onFormsPage.formsSection();
-    navigateTo.formsLayoutPage();
+    navigateTo.formsDatepickerPage();
     onFormsPage.datepickerSection();
   })
 
   it.only('modal Page', ()=>{
-    navigateTo.modalOverlaysPage();
-    onModalPage.dialogSection();
+    navigateTo.modalDialogPage();
+    // onModalPage.dialogSection();
+    navigateTo.modalWindowPage();
+    onModalPage.windowSection();
   })
 
 })

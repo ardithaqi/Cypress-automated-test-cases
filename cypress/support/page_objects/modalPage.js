@@ -36,6 +36,37 @@ export class ModalPage{
         cy.get('ul li').should('contain','Ardi Thaci')
     }
 
+    windowSection(){
+        cy.contains('nb-card', 'Window Form').find('button').then(button=>{
+            cy.wrap(button).eq(0).click();
+            cy.get('nb-window').then(menu=>{
+                cy.wrap(menu).find('.buttons').then(buttons=>{
+                    cy.wrap(buttons).find('button').eq(0).click().wait(200)
+                    cy.wrap(buttons).find('button').eq(1).click()
+                        cy.wrap(menu).find('#subject').type('New years eve')
+                        cy.wrap(menu).find('#text').type('We celebrating new years baby')
+                        cy.wrap(buttons).find('button').eq(1).click()
+                        cy.wrap(buttons).find('button').eq(2).click()
+                })
+            })
+            cy.wrap(button).eq(1).click();
+            cy.get('nb-window').then(menu=>{
+                cy.wrap(menu).find('button').eq(0).click().wait(200)
+                cy.wrap(menu).find('button').eq(1).click().wait(200)
+                cy.wrap(menu).find('button').eq(2).click();
+            })
+        })
+        cy.contains('nb-card','Window Without Backdrop').find('button').then(button=>{
+            cy.wrap(button).eq(0).click();
+            cy.get('body').type('{esc}')
+            cy.wrap(button).eq(1).click();
+            cy.get('nb-window').then(menu=>{
+                cy.wrap(menu).find('button').eq(0).click().wait(200)
+                cy.wrap(menu).find('button').eq(2).click();
+            })
+        })
+    }
+
 
 }
 

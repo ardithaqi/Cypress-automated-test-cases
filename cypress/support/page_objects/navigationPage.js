@@ -26,15 +26,19 @@ export class NavigationPage{
         groupNamesItem('Forms');
         cy.contains('Form Layout').click();
       }
-      formsLayoutPage(){
+      formsDatepickerPage(){
         groupNamesItem('Forms')
         cy.contains('Datepicker').click();
       }
       
-      modalOverlaysPage() {
+      modalDialogPage() {
          groupNamesItem('Modal')
          cy.contains("Dialog").click();
     }
+      modalWindowPage(){
+        groupNamesItem('Modal')
+        cy.contains('Window').click();
+      }
 
       smartTablePage() {
          cy.contains("Tables").click();
