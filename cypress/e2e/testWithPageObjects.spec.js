@@ -2,6 +2,7 @@
 
 const { onFormsPage } = require("../support/page_objects/formsPage");
 const { onLayoutsPage } = require("../support/page_objects/layoutsPage");
+const { onModalPage } = require("../support/page_objects/modalPage");
 const { navigateTo } = require("../support/page_objects/navigationPage");
 
 
@@ -25,11 +26,16 @@ describe("Test with Page Objects", () => {
     onLayoutsPage.accordionSection();
   });
 
-  it.only('forms Page',()=>{
-    // navigateTo.formsLayoutPage();
-    // onFormsPage.formsSection();
+  it('forms Page',()=>{
+    navigateTo.formsLayoutPage();
+    onFormsPage.formsSection();
     navigateTo.formsLayoutPage();
     onFormsPage.datepickerSection();
+  })
+
+  it.only('modal Page', ()=>{
+    navigateTo.modalOverlaysPage();
+    onModalPage.dialogSection();
   })
 
 })

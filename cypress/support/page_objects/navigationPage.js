@@ -32,7 +32,7 @@ export class NavigationPage{
       }
       
       modalOverlaysPage() {
-         cy.contains("Modal").click();
+         groupNamesItem('Modal')
          cy.contains("Dialog").click();
     }
 
