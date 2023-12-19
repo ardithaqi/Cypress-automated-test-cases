@@ -4,6 +4,7 @@ const { onFormsPage } = require("../support/page_objects/formsPage");
 const { onLayoutsPage } = require("../support/page_objects/layoutsPage");
 const { onModalPage } = require("../support/page_objects/modalPage");
 const { navigateTo } = require("../support/page_objects/navigationPage");
+const { onTablePage } = require("../support/page_objects/tablePage");
 
 
 describe("Test with Page Objects", () => {
@@ -12,9 +13,9 @@ describe("Test with Page Objects", () => {
   });
 
   it("verify navigation", () => {
-    navigateTo.formsLayoutsPage();
-    navigateTo.modalOverlaysPage();
-    navigateTo.smartTablePage();
+    navigateTo.layoutStepperPage();
+    navigateTo.modalDialogPage();
+    navigateTo.tableSmartTablePage();
   });
 
   it("layout Page", () => {
@@ -33,17 +34,22 @@ describe("Test with Page Objects", () => {
     onFormsPage.datepickerSection();
   })
 
-  it.only('modal Page', ()=>{
-    // navigateTo.modalDialogPage();
-    // onModalPage.dialogSection();
-    // navigateTo.modalWindowPage();
-    // onModalPage.windowSection();
+  it('modal Page', ()=>{
+    navigateTo.modalDialogPage();
+    onModalPage.dialogSection();
+    navigateTo.modalWindowPage();
+    onModalPage.windowSection();
     navigateTo.modalPopoverPage();
     onModalPage.popoverSection();
-    // navigateTo.modalToastrPage();
-    // onModalPage.toastrSection();
-    // navigateTo.modalTooltipPage();
-    // onModalPage.tooltipSection();
+    navigateTo.modalToastrPage();
+    onModalPage.toastrSection();
+    navigateTo.modalTooltipPage();
+    onModalPage.tooltipSection();
+  })
+
+  it('smart table Page',()=>{
+    navigateTo.tableSmartTablePage();
+    onTablePage.smartTableSection();
   })
 
 })

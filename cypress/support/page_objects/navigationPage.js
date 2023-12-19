@@ -52,8 +52,8 @@ export class NavigationPage{
         cy.contains('Tooltip').click();
       }
 
-      smartTablePage() {
-         cy.contains("Tables").click();
+      tableSmartTablePage() {
+         groupNamesItem('Tables & Data')
          cy.contains("Smart Table").click();
     }
     
