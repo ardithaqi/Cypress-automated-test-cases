@@ -47,6 +47,10 @@ export class NavigationPage{
         groupNamesItem('Modal')
         cy.contains('Toastr').click()
       }
+      modalTooltipPage(){
+        groupNamesItem('Modal')
+        cy.contains('Tooltip').click();
+      }
 
       smartTablePage() {
          cy.contains("Tables").click();

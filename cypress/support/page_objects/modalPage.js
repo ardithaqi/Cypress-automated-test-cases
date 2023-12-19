@@ -147,7 +147,6 @@ export class ModalPage{
         })
     }
 
-   
     toastrSection(){
         //Toastr Section
         cy.contains('nb-card', 'Toaster configuration').find('.row').then(toastrMenu=>{
@@ -180,6 +179,27 @@ export class ModalPage{
                 cy.get('button').contains('Random toast').click()
             }
         })
+    }
+    tooltipSection(){
+        //Tooltip With Icon
+        cy.contains('nb-card', 'Tooltip With Icon').find('button').then(button=>{
+            cy.wrap(button).eq(0).click().wait(300)
+            cy.wrap(button).eq(1).click().wait(300).trigger('mouseleave')
+        })
+
+        //Tooltip Placements
+        cy.contains('nb-card', 'Tooltip Placements').find('button').each(button=>{
+            cy.wrap(button).realHover('mouse').wait(300).trigger('mouseleave')
+        })
+
+        //Colored Tooltips
+        const buttonsInfo=['Default', 'Primary', 'Success', 'Danger', 'Info','Warning']
+        
+            cy.contains('nb-card', 'Colored Tooltips').find('button').each((button,index)=>{
+                cy.wrap(button).invoke('text').should('contain', buttonsInfo[index])
+                cy.wrap(button).trigger('mouseenter').wait(300).trigger('mouseleave')
+
+            })
     }
 }
 
