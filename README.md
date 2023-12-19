@@ -3,8 +3,8 @@ This repository contains Cypress test cases written for a prebuilt website. The 
 To Execute the Cypress Test Suite:
 
 - Clone this repository. 
-- Install dependencies using npm install.
-- Install Cypress using npm install cypress.
+- Install dependencies using `npm install`.
+- Install Cypress using `npm install cypress`.
 - Start the website by running npm start.
 - Open a new terminal and execute npx cypress open.
 - Run the test cases from the Cypress interface.
