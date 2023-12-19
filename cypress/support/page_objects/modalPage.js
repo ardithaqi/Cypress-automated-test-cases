@@ -77,32 +77,77 @@ export class ModalPage{
     }
     popoverSection(){
 
-        // //Popover Position
-        // cy.contains('nb-card', 'Popover Position').find('button').each(button=>{
-        //     cy.wrap(button).trigger('mouseenter').wait(1000).trigger('mouseleave')
-        //     // cy.wrap(button).realHover('mouse').wait(1000)
+        //Popover Position
+        cy.contains('nb-card', 'Popover Position').find('button').each(button=>{
+            cy.wrap(button).trigger('mouseenter').wait(1000).trigger('mouseleave')
+            // cy.wrap(button).realHover('mouse').wait(1000)
 
-        //     //theres another way how to do the hover and that is by installing a plugin 'npm i cypress-real-events'
-        //     // then add import "cypress-real-events/support"; at e2e.js in the support folder
-        //     // and write this  cy.wrap(button).realHover('mouse').wait(1000)
-        // })
+            //theres another way how to do the hover and that is by installing a plugin 'npm i cypress-real-events'
+            // then add import "cypress-real-events/support"; at e2e.js in the support folder
+            // and write this  cy.wrap(button).realHover('mouse').wait(1000)
+        })
         
-        // //Simple Popovers
-        // cy.contains('nb-card', 'Simple Popovers').find('button').each(button=>{
-        //     cy.wrap(button).realHover('mouse').wait(1000)
-        // })
-        // cy.contains('nb-card', 'Simple Popovers').find('button').eq(0).click();
+        //Simple Popovers
+        cy.contains('nb-card', 'Simple Popovers').find('button').each(button=>{
+            cy.wrap(button).realHover('mouse').wait(1000)
+        })
+        cy.contains('nb-card', 'Simple Popovers').find('button').eq(0).click();
 
         //Template Popovers
         cy.contains('nb-card', 'Template Popovers').find('button').then(button=>{
             cy.wrap(button).eq(0).click();
-            cy.get('nb-popover').eq(0).then(popoverMenu=>{
-                cy.wrap(popoverMenu).find('.content-active').invoke('text').should('contain', 'Such a wonderful day!')
-                cy.wrap(popoverMenu).find('li').eq(1).click()
-                cy.wrap(popoverMenu).find('[tabtitle="Second Tab"]').invoke('text').should('contain', 'Indeed!')
-    
+            cy.get('nb-popover').then(tabsMenu=>{
+                cy.wrap(tabsMenu).find('.content-active').invoke('text').should('contain', 'Such a wonderful day!')
+                cy.wrap(tabsMenu).find('li').eq(1).click()
+                cy.wrap(tabsMenu).find('[tabtitle="Second Tab"]').invoke('text').should('contain', 'Indeed!')
+            })
+            cy.wrap(button).eq(1).click();
+            cy.get('nb-popover').then(formsMenu=>{
+                cy.wrap(formsMenu).find('form').then(overlay=>{
+                    cy.wrap(overlay).find('[placeholder="Recipients"]').type('Shoqnia e ardit')
+                    cy.wrap(overlay).find('[placeholder="Subject"]').type('New years eve')
+                    cy.wrap(overlay).find('[placeholder="Message"]').type('Congratulaions on the new years eve and shit brrap papapa')
+                    cy.wrap(overlay).find('button').click()
+                })
+            })
+            cy.wrap(button).eq(2).click();
+            cy.get('nb-popover').then(cardsMenu=>{
+                cy.wrap(cardsMenu).find('[status="warning"]').should('contain','Hello')
             })
         })
+
+        //Component Popovers
+        cy.contains('nb-card', 'Component Popovers').find('button').then(button=>{
+            cy.wrap(button).eq(0).click();
+            cy.get('nb-popover').then(tabsMenu=>{
+                cy.wrap(tabsMenu).find('ul li').then(list=>{
+                    cy.wrap(list).eq(0).find('a').click().should('contain', "What's up?")
+                    cy.get('[ng-reflect-tab-title="What\'s up?"]').invoke('text').should('contain', 'Such a wonderful day!')
+                    cy.wrap(list).eq(1).find('a').click().should('contain', 'Second Tab')
+                    cy.get('[tabtitle="Second Tab"]').invoke('text').should('contain', 'Indeed!')
+                })
+            })
+
+            cy.wrap(button).eq(1).click();
+            cy.get('nb-popover').find('form').then(overlay=>{
+                cy.wrap(overlay).find('[placeholder="Recipients"]').type('Random peole')
+                cy.wrap(overlay).find('[placeholder="Subject"]').type('Happy eid')
+                cy.wrap(overlay).find('[placeholder="Message"]').type('Eid mubarak')
+                cy.wrap(overlay).find('button').click()
+            })
+
+            cy.wrap(button).eq(2).click();
+            cy.get('nb-popover').find('nb-card-body').invoke('text').should('contain', 'Far far away, behind the word mountains')
+            })
+        
+        //Event Debouncing 
+        cy.contains('nb-card', 'Event Debouncing').find('button').each(button=>{
+            // cy.wrap(button).trigger('mouseenter').wait(200).trigger('mouseleave')
+            // or
+            cy.wrap(button).realHover('mouse').wait(200)
+        })
+
+        
     }
 
 }
