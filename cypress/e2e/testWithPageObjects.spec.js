@@ -38,12 +38,12 @@ describe("Test with Page Objects", () => {
     // onModalPage.dialogSection();
     // navigateTo.modalWindowPage();
     // onModalPage.windowSection();
-    // navigateTo.modalPopoverPage();
-    // onModalPage.popoverSection();
+    navigateTo.modalPopoverPage();
+    onModalPage.popoverSection();
     // navigateTo.modalToastrPage();
     // onModalPage.toastrSection();
-    navigateTo.modalTooltipPage();
-    onModalPage.tooltipSection();
+    // navigateTo.modalTooltipPage();
+    // onModalPage.tooltipSection();
   })
 
 })

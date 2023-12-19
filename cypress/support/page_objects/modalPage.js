@@ -88,7 +88,7 @@ export class ModalPage{
         
         //Simple Popovers
         cy.contains('nb-card', 'Simple Popovers').find('button').each(button=>{
-            cy.wrap(button).realHover('mouse').wait(1000)
+            cy.wrap(button).realHover('mouse').wait(1000).trigger('mouseleave')
         })
         cy.contains('nb-card', 'Simple Popovers').find('button').eq(0).click();
 
