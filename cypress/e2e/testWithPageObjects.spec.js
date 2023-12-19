@@ -38,8 +38,10 @@ describe("Test with Page Objects", () => {
     // onModalPage.dialogSection();
     // navigateTo.modalWindowPage();
     // onModalPage.windowSection();
-    navigateTo.modalPopoverPage();
-    onModalPage.popoverSection();
+    // navigateTo.modalPopoverPage();
+    // onModalPage.popoverSection();
+    navigateTo.modalToastrPage();
+    onModalPage.toastrSection();
   })
 
 })

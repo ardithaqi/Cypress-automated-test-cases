@@ -34,7 +34,7 @@ export class NavigationPage{
       modalDialogPage() {
          groupNamesItem('Modal')
          cy.contains("Dialog").click();
-    }
+      }
       modalWindowPage(){
         groupNamesItem('Modal')
         cy.contains('Window').click();
@@ -42,6 +42,10 @@ export class NavigationPage{
       modalPopoverPage(){
         groupNamesItem('Modal');
         cy.contains('Popover').click();
+      }
+      modalToastrPage(){
+        groupNamesItem('Modal')
+        cy.contains('Toastr').click()
       }
 
       smartTablePage() {
