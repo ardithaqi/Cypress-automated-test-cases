@@ -47,7 +47,7 @@ describe("Test with Page Objects", () => {
     onModalPage.tooltipSection();
   })
 
-  it('smart table Page',()=>{
+  it.only('smart table Page',()=>{
     navigateTo.tableSmartTablePage();
     onTablePage.smartTableSection();
   })
