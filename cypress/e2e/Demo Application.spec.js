@@ -6,7 +6,6 @@ const { onModalPage } = require("../support/page_objects/modalPage");
 const { navigateTo } = require("../support/page_objects/navigationPage");
 const { onTablePage } = require("../support/page_objects/tablePage");
 
-
 describe("Test with Page Objects", () => {
   beforeEach("open application", () => {
     cy.openHomePage();
@@ -27,14 +26,14 @@ describe("Test with Page Objects", () => {
     onLayoutsPage.accordionSection();
   });
 
-  it('forms Page',()=>{
+  it("forms Page", () => {
     navigateTo.formsLayoutPage();
     onFormsPage.formsSection();
     navigateTo.formsDatepickerPage();
     onFormsPage.datepickerSection();
-  })
+  });
 
-  it('modal Page', ()=>{
+  it("modal Page", () => {
     navigateTo.modalDialogPage();
     onModalPage.dialogSection();
     navigateTo.modalWindowPage();
@@ -45,11 +44,12 @@ describe("Test with Page Objects", () => {
     onModalPage.toastrSection();
     navigateTo.modalTooltipPage();
     onModalPage.tooltipSection();
-  })
+  });
 
-  it.only('smart table Page',()=>{
-    navigateTo.tableSmartTablePage();
-    onTablePage.smartTableSection();
-  })
-
-})
+  it.only("smart table Page", () => {
+    // navigateTo.tableSmartTablePage();
+    // onTablePage.smartTableSection();
+    navigateTo.tableTreeGridPage();
+    onTablePage.treeGridSection();
+  });
+});

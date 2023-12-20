@@ -1,5 +1,3 @@
-import { table } from "console";
-
 export class TablePage {
   smartTableSection() {
     //Adding a new user
@@ -79,7 +77,28 @@ export class TablePage {
     }
   }
 
-  treeGridSection() {}
+  treeGridSection() {
+    // //click all rows
+    // cy.get("tbody tr").then((tableRow) => {
+    //   cy.wrap(tableRow).eq(0).dblclick();
+    //   cy.wrap(tableRow).eq(1).dblclick();
+    //   cy.wrap(tableRow).eq(2).click();
+    // });
+
+    //search for a particular file
+    const fileDetails = ["backup", "Report"];
+
+    cy.wrap(fileDetails).each((fileDetails1, index) => {
+      cy.get("#search").clear().type(fileDetails1);
+      cy.wait(2000);
+      cy.get("[role='rowgroup']")
+        .find("tr")
+        .eq(2)
+        .find("td")
+        .eq(0)
+        .should("contain", fileDetails[index]);
+    });
+  }
 }
 
 export const onTablePage = new TablePage();
