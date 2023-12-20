@@ -57,7 +57,7 @@ export class TablePage {
       });
     });
 
-    //Clicking next button to show other users and prev to go back to the beginning
+    //Clicking `next` button to show other users
     const numberOfClicks = 4;
     for (let i = 0; i < numberOfClicks; i++) {
       cy.get("nav")
@@ -67,6 +67,7 @@ export class TablePage {
           cy.wrap(nextButton).click();
         });
     }
+    //Clicking `prev` button to show other users
     for (let i = 0; i < numberOfClicks; i++) {
       cy.get("nav")
         .find("ul li")
@@ -78,25 +79,36 @@ export class TablePage {
   }
 
   treeGridSection() {
-    // //click all rows
-    // cy.get("tbody tr").then((tableRow) => {
-    //   cy.wrap(tableRow).eq(0).dblclick();
-    //   cy.wrap(tableRow).eq(1).dblclick();
-    //   cy.wrap(tableRow).eq(2).click();
-    // });
+    //Search for a particular file
+    const files = [
+      "project-1.doc",
+      "project-2.doc",
+      "project-3",
+      "project-4.docx",
+      "Report 1",
+      "Report 2",
+      "backup.bkp",
+      "secret-note.txt",
+    ];
 
-    //search for a particular file
-    const fileDetails = ["backup", "Report"];
-
-    cy.wrap(fileDetails).each((fileDetails1, index) => {
-      cy.get("#search").clear().type(fileDetails1);
-      cy.wait(2000);
+    cy.wrap(files).each((files) => {
+      cy.get("#search").type(files);
+      cy.wait(500);
       cy.get("[role='rowgroup']")
         .find("tr")
         .eq(2)
         .find("td")
         .eq(0)
-        .should("contain", fileDetails[index]);
+        .should("contain", files);
+      cy.get("#search").clear();
+    });
+
+    //Click all rows
+    cy.wait(1000);
+    cy.get("tbody tr").then((tableRow) => {
+      cy.wrap(tableRow).eq(0).click();
+      cy.get('[role="rowgroup"]').find("tr").eq(6).click();
+      cy.get('[role="rowgroup"]').find("tr").eq(9).click();
     });
   }
 }
