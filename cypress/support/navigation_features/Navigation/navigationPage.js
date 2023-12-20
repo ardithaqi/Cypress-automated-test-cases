@@ -63,6 +63,22 @@ export class NavigationPage {
     groupNamesItem("Tables & Data");
     cy.contains("Tree Grid").click();
   }
+  AuthLoginPage() {
+    groupNamesItem("Auth");
+    cy.contains("Login").click();
+  }
+  AuthRegisterPage() {
+    groupNamesItem("Auth");
+    cy.contains("Register").click();
+  }
+  AuthRequestPasswordPage() {
+    groupNamesItem("Auth");
+    cy.contains("Request Password").click();
+  }
+  AuthResetPasswordPage() {
+    groupNamesItem("Auth");
+    cy.contains("Reset Password").click();
+  }
 }
 
 export const navigateTo = new NavigationPage();
