@@ -1,10 +1,10 @@
 /// <reference types="cypress" />
 
-const { onFormsPage } = require("../support/page_objects/formsPage");
-const { onLayoutsPage } = require("../support/page_objects/layoutsPage");
-const { onModalPage } = require("../support/page_objects/modalPage");
-const { navigateTo } = require("../support/page_objects/navigationPage");
-const { onTablePage } = require("../support/page_objects/tablePage");
+import { navigateTo } from "../support/navigation_features/Navigation/navigationPage";
+import { onFormsPage } from "../support/navigation_features/formsPage";
+import { onLayoutsPage } from "../support/navigation_features/layoutsPage";
+import { onModalPage } from "../support/navigation_features/modalPage";
+import { onTablePage } from "../support/navigation_features/tablePage";
 
 describe("Test with Page Objects", () => {
   beforeEach("open application", () => {
@@ -12,15 +12,23 @@ describe("Test with Page Objects", () => {
   });
 
   it("verify navigation", () => {
+    navigateTo.layoutAccordionPage();
     navigateTo.layoutStepperPage();
+    navigateTo.formsLayoutPage();
+    navigateTo.formsDatepickerPage();
     navigateTo.modalDialogPage();
+    navigateTo.modalWindowPage();
+    navigateTo.modalPopoverPage();
+    navigateTo.modalToastrPage();
+    navigateTo.modalTooltipPage();
     navigateTo.tableSmartTablePage();
+    navigateTo.tableTreeGridPage();
   });
 
   it("layout Page", () => {
     navigateTo.layoutStepperPage();
     onLayoutsPage.stepperFirstSection();
-    onLayoutsPage.stepperSecondSection();
+    onLayoutsPage.stepperSecondSection;
     onLayoutsPage.stepperThirdSection();
     navigateTo.layoutAccordionPage();
     onLayoutsPage.accordionSection();
@@ -46,9 +54,9 @@ describe("Test with Page Objects", () => {
     onModalPage.tooltipSection();
   });
 
-  it.only("smart table Page", () => {
-    // navigateTo.tableSmartTablePage();
-    // onTablePage.smartTableSection();
+  it("smart table Page", () => {
+    navigateTo.tableSmartTablePage();
+    onTablePage.smartTableSection();
     navigateTo.tableTreeGridPage();
     onTablePage.treeGridSection();
   });

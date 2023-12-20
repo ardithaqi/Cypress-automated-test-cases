@@ -12,6 +12,7 @@ function groupNamesItem(groupName) {
 }
 
 export class NavigationPage {
+  //Layout Page
   layoutStepperPage() {
     groupNamesItem("Layout");
     cy.contains("Stepper").click();
@@ -21,6 +22,7 @@ export class NavigationPage {
     cy.contains("Accordion").click();
   }
 
+  //Forms Page
   formsLayoutPage() {
     groupNamesItem("Forms");
     cy.contains("Form Layout").click();
@@ -30,6 +32,7 @@ export class NavigationPage {
     cy.contains("Datepicker").click();
   }
 
+  //Modal & Overlays Page
   modalDialogPage() {
     groupNamesItem("Modal");
     cy.contains("Dialog").click();
@@ -51,6 +54,7 @@ export class NavigationPage {
     cy.contains("Tooltip").click();
   }
 
+  //Tables & Data Page
   tableSmartTablePage() {
     groupNamesItem("Tables & Data");
     cy.contains("Smart Table").click();
