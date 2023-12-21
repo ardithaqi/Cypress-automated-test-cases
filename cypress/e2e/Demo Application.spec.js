@@ -2,6 +2,7 @@
 
 import { navigateTo } from "../support/navigation_features/Navigation/navigationPage";
 import { onAuthPage } from "../support/navigation_features/authPage";
+import { onExtraComponents } from "../support/navigation_features/extraComponentsPage";
 import { onFormsPage } from "../support/navigation_features/formsPage";
 import { onLayoutsPage } from "../support/navigation_features/layoutsPage";
 import { onModalPage } from "../support/navigation_features/modalPage";
@@ -35,9 +36,9 @@ describe("Testing Navigation Features", () => {
     onLayoutsPage.accordionSection();
   });
 
-  it.only("Forms Page", () => {
-    // navigateTo.formsLayoutPage();
-    // onFormsPage.formsSection();
+  it("Forms Page", () => {
+    navigateTo.formsLayoutPage();
+    onFormsPage.formsSection();
     navigateTo.formsDatepickerPage();
     onFormsPage.datepickerSection();
   });
@@ -71,5 +72,10 @@ describe("Testing Navigation Features", () => {
     onAuthPage.requestPasswordSection();
     navigateTo.AuthResetPasswordPage();
     onAuthPage.resetPasswordSection();
+  });
+
+  it.only("Extra Components Page", () => {
+    navigateTo.ExtraComponentsPage();
+    onExtraComponents.calendarSection();
   });
 });

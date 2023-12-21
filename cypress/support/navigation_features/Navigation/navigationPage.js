@@ -79,6 +79,11 @@ export class NavigationPage {
     groupNamesItem("Auth");
     cy.contains("Reset Password").click();
   }
+
+  ExtraComponentsPage() {
+    groupNamesItem("Extra Components");
+    cy.contains("Calendar").click();
+  }
 }
 
 export const navigateTo = new NavigationPage();
