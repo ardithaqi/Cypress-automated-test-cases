@@ -29,15 +29,15 @@ describe("Testing Navigation Features", () => {
   it("Layout Page", () => {
     navigateTo.layoutStepperPage();
     onLayoutsPage.stepperFirstSection();
-    onLayoutsPage.stepperSecondSection;
+    onLayoutsPage.stepperSecondSection();
     onLayoutsPage.stepperThirdSection();
     navigateTo.layoutAccordionPage();
     onLayoutsPage.accordionSection();
   });
 
-  it("Forms Page", () => {
-    navigateTo.formsLayoutPage();
-    onFormsPage.formsSection();
+  it.only("Forms Page", () => {
+    // navigateTo.formsLayoutPage();
+    // onFormsPage.formsSection();
     navigateTo.formsDatepickerPage();
     onFormsPage.datepickerSection();
   });
@@ -62,9 +62,9 @@ describe("Testing Navigation Features", () => {
     onTablePage.treeGridSection();
   });
 
-  it.only("Auth Page", () => {
-    // navigateTo.AuthLoginPage();
-    // onAuthPage.loginSection();
+  it("Auth Page", () => {
+    navigateTo.AuthLoginPage();
+    onAuthPage.loginSection();
     navigateTo.AuthRegisterPage();
     onAuthPage.registerSection();
     navigateTo.AuthRequestPasswordPage();

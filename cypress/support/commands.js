@@ -41,31 +41,3 @@ Cypress.Commands.add("openHomePage", () => {
   cy.get("nav nb-select").click();
   cy.get(".options-list").find("nb-option").eq(1).click();
 });
-
-Cypress.Commands.add("loginToApplication", () => {
-  // cy.visit("http://localhost:4200/auth/login");
-  cy.get('[for="input-email"]').type("ardithaci@test.com");
-  cy.get('[placeholder="Password"]').type("arditest");
-  cy.get('[type="checkbox"]').check({ force: true });
-  cy.get("button").click();
-});
-
-Cypress.Commands.add("registerUser", () => {
-  cy.get('[placeholder="Full name"]').type("Ardii");
-  cy.get('[placeholder="Email address"]').type("Ardithaci1@test.com");
-  cy.get('[placeholder="Password"]').type("arditest");
-  cy.get('[placeholder="Confirm Password"]').type("arditest");
-  cy.get('[type="checkbox"]').check({ force: true });
-  cy.get("button").click();
-});
-
-Cypress.Commands.add("requestPassword", () => {
-  cy.get('[placeholder="Email address"]').type("ardithaci@test.com");
-  cy.get("button").click();
-});
-
-Cypress.Commands.add("resetPassword", () => {
-  cy.get('[placeholder="New Password"]').type("arditest1");
-  cy.get('[placeholder="Confirm Password"]').type("arditest1");
-  cy.get("button").click();
-});
