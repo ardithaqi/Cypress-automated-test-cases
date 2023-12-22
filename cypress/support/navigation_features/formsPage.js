@@ -152,16 +152,17 @@ export class FormsPage {
   }
 
   datepickerSection() {
-    // Common Datepicker
     let date = new Date();
     // date.setDate(date.getDate());
     let currentDate = date.getDate();
+    let currentMonth = date.toLocaleDateString("en-US", { month: "short" });
+    let currentYear = date.getFullYear();
     let futureDate = date.getDate() + 7;
-    let dateToAssert = `Dec ${currentDate}, 2023`;
-    let dateToAssert1 = `Dec ${currentDate}, 2023 - Dec ${futureDate}, 2023`;
+    let dateToAssert = `${currentMonth} ${currentDate}, ${currentYear}`;
+    let dateToAssert1 = `${currentMonth} ${currentDate}, ${currentYear} - ${currentMonth} ${futureDate}, ${currentYear}`;
 
     console.log(date);
-
+    // Common Datepicker
     cy.contains("nb-card", "Common Datepicker")
       .find("input")
       .then((input) => {

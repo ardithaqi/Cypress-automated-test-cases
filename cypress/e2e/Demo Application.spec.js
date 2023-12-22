@@ -76,6 +76,10 @@ describe("Testing Navigation Features", () => {
 
   it.only("Extra Components Page", () => {
     navigateTo.ExtraComponentsPage();
-    onExtraComponents.calendarSection();
+    onExtraComponents.firstCalendar();
+    navigateTo.ExtraComponentsPage();
+    onExtraComponents.secondCalendar();
+    navigateTo.ExtraComponentsPage();
+    onExtraComponents.thirdCalendar();
   });
 });
