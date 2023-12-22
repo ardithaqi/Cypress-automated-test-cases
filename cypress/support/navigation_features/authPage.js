@@ -51,16 +51,16 @@ export class AuthPage {
     cy.get('[type="checkbox"]').check({ force: true });
     cy.get("button").click();
   }
-  // requestPasswordSection() {
-  //   cy.get('[placeholder="Email address"]').type("ardithaci@test.com");
-  //   cy.get("button").click();
-  // }
+  requestPasswordSection() {
+    cy.get('[placeholder="Email address"]').type("ardithaci@test.com");
+    cy.get("button").click();
+  }
 
-  // resetPasswordSection() {
-  //  cy.get('[placeholder="New Password"]').type("arditest1");
-  //  cy.get('[placeholder="Confirm Password"]').type("arditest1");
-  //  cy.get("button").click();
-  // }
+  resetPasswordSection() {
+    cy.get('[placeholder="New Password"]').type("arditest1");
+    cy.get('[placeholder="Confirm Password"]').type("arditest1");
+    cy.get("button").click();
+  }
 }
 
 export const onAuthPage = new AuthPage();

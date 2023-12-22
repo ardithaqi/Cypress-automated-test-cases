@@ -56,6 +56,14 @@ describe("Testing Navigation Features", () => {
     onModalPage.tooltipSection();
   });
 
+  it("Extra Components Page", () => {
+    navigateTo.ExtraComponentsPage();
+    onExtraComponents.firstCalendar();
+    navigateTo.ExtraComponentsPage();
+    onExtraComponents.secondCalendar();
+    navigateTo.ExtraComponentsPage();
+    onExtraComponents.thirdCalendar();
+  });
   it("Tables & Data Page", () => {
     navigateTo.tableSmartTablePage();
     onTablePage.smartTableSection();
@@ -63,7 +71,7 @@ describe("Testing Navigation Features", () => {
     onTablePage.treeGridSection();
   });
 
-  it("Auth Page", () => {
+  it.only("Auth Page", () => {
     navigateTo.AuthLoginPage();
     onAuthPage.loginSection();
     navigateTo.AuthRegisterPage();
@@ -72,14 +80,5 @@ describe("Testing Navigation Features", () => {
     onAuthPage.requestPasswordSection();
     navigateTo.AuthResetPasswordPage();
     onAuthPage.resetPasswordSection();
-  });
-
-  it.only("Extra Components Page", () => {
-    navigateTo.ExtraComponentsPage();
-    onExtraComponents.firstCalendar();
-    navigateTo.ExtraComponentsPage();
-    onExtraComponents.secondCalendar();
-    navigateTo.ExtraComponentsPage();
-    onExtraComponents.thirdCalendar();
   });
 });
