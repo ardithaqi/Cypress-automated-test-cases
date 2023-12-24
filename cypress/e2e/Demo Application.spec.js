@@ -13,7 +13,7 @@ describe("Testing Navigation Features", () => {
     cy.openHomePage();
   });
 
-  it("Verify navigation features", () => {
+  it.only("Verify navigation features", () => {
     navigateTo.layoutAccordionPage();
     navigateTo.layoutStepperPage();
     navigateTo.formsLayoutPage();
