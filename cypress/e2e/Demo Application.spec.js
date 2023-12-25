@@ -14,11 +14,11 @@ describe("Testing Navigation Features", () => {
     cy.openHomePage();
   });
 
-  it.only("Verify navbar buttons", () => {
+  it("Verify navbar buttons", () => {
     onNavbarButtons.navbarButtons();
   });
 
-  it.only("Verify navigation features", () => {
+  it("Verify navigation features", () => {
     navigateTo.layoutAccordionPage();
     navigateTo.layoutStepperPage();
     navigateTo.formsLayoutPage();
@@ -43,9 +43,9 @@ describe("Testing Navigation Features", () => {
     onLayoutsPage.accordionSection();
   });
 
-  it("Forms Page", () => {
-    navigateTo.formsLayoutPage();
-    onFormsPage.formsSection();
+  it.only("Forms Page", () => {
+    // navigateTo.formsLayoutPage();
+    // onFormsPage.formsSection();
     navigateTo.formsDatepickerPage();
     onFormsPage.datepickerSection();
   });
@@ -71,6 +71,7 @@ describe("Testing Navigation Features", () => {
     navigateTo.ExtraComponentsPage();
     onExtraComponents.thirdCalendar();
   });
+
   it("Tables & Data Page", () => {
     navigateTo.tableSmartTablePage();
     onTablePage.smartTableSection();

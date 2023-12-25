@@ -156,15 +156,39 @@ export class FormsPage {
 
   //Datepicker section
   datepickerSection() {
+    const monthNames = [
+      "Jan",
+      "Feb",
+      "Mar",
+      "Apr",
+      "May",
+      "Jun",
+      "Jul",
+      "Aug",
+      "Sep",
+      "Oct",
+      "Nov",
+      "Dec",
+    ];
+
     let date = new Date();
     // date.setDate(date.getDate());
     let currentDate = date.getDate();
+    let currentMonthNum = date.getMonth();
     let currentMonth = date.toLocaleDateString("en-US", { month: "short" });
+    let nextMonth = (currentMonthNum + 1) % 12;
+    console.log(monthNames[nextMonth]);
     let currentYear = date.getFullYear();
-    let futureDate = date.getDate() + 7;
+    let futureDate =
+      (currentDate + 7) %
+      new Date(date.getFullYear(), date.getMonth() + 1, 0).getDate();
+    console.log(futureDate);
+
     let dateToAssert = `${currentMonth} ${currentDate}, ${currentYear}`;
-    let dateToAssert1 = `${currentMonth} ${currentDate}, ${currentYear} - ${currentMonth} ${futureDate}, ${currentYear}`;
-    console.log(date);
+    let todaysDateAssert = `${currentMonth} ${currentDate}, ${currentYear} - ${currentMonth} ${futureDate}, ${currentYear}`;
+    let futureDateAssert = `${currentMonth} ${currentDate}, ${currentYear} - ${
+      monthNames[nextMonth]
+    } ${futureDate}, ${currentYear + 1}`;
 
     // Common Datepicker
     cy.contains("nb-card", "Common Datepicker")
@@ -182,25 +206,43 @@ export class FormsPage {
       });
 
     //Datepicker with Range
+
     cy.contains("nb-card", "Datepicker With Range")
       .find("input")
       .then((input) => {
         cy.wrap(input).click();
         cy.get("nb-calendar-picker").then((dayPicker) => {
-          cy.wrap(dayPicker)
-            .find(".day-cell")
-            .not(".bounding-month")
-            .contains(currentDate)
-            .click();
-          cy.wrap(dayPicker)
-            .find(".day-cell")
-            .not(".bounding-month")
-            .contains(futureDate)
-            .click();
+          if (currentDate <= 23) {
+            cy.wrap(dayPicker)
+              .find(".day-cell")
+              .not(".bounding-month")
+              .contains(currentDate)
+              .click();
+            cy.wrap(dayPicker)
+              .find(".day-cell")
+              .not(".bounding-month")
+              .contains(futureDate)
+              .click();
 
-          cy.wrap(input)
-            .invoke("prop", "value")
-            .should("contain", dateToAssert1);
+            cy.wrap(input)
+              .invoke("prop", "value")
+              .should("contain", todaysDateAssert);
+          } else {
+            cy.wrap(dayPicker)
+              .find(".day-cell")
+              .not(".bounding-month")
+              .contains(currentDate)
+              .click();
+            cy.wrap(dayPicker)
+
+              .find("[class='day-cell bounding-month']")
+              .contains(futureDate)
+              .click();
+
+            cy.wrap(input)
+              .invoke("prop", "value")
+              .should("contain", futureDateAssert);
+          }
         });
       });
 
