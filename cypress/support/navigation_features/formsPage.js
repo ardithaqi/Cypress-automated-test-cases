@@ -185,6 +185,8 @@ export class FormsPage {
     console.log(futureDate);
 
     let dateToAssert = `${currentMonth} ${currentDate}, ${currentYear}`;
+
+    //these are used at the datepicker with range
     let todaysDateAssert = `${currentMonth} ${currentDate}, ${currentYear} - ${currentMonth} ${futureDate}, ${currentYear}`;
     let futureDateAssert = `${currentMonth} ${currentDate}, ${currentYear} - ${
       monthNames[nextMonth]
@@ -206,7 +208,6 @@ export class FormsPage {
       });
 
     //Datepicker with Range
-
     cy.contains("nb-card", "Datepicker With Range")
       .find("input")
       .then((input) => {
