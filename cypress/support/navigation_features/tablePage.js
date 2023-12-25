@@ -1,4 +1,5 @@
 export class TablePage {
+  //Smart table section
   smartTableSection() {
     //Adding a new user
     cy.get("thead").then((tableHead) => {
@@ -78,6 +79,7 @@ export class TablePage {
     }
   }
 
+  //Tree grid section
   treeGridSection() {
     //Search for a particular file
     const files = [

@@ -1,4 +1,5 @@
 export class LayoutsPage {
+  //Stepper first section
   stepperFirstSection() {
     const numberOfClicks = 3;
     for (let i = 0; i < numberOfClicks; i++) {
@@ -8,6 +9,8 @@ export class LayoutsPage {
       cy.get(".step-content").first().find("button").eq(0).click().wait(200);
     }
   }
+
+  //Stepper second section
   stepperSecondSection() {
     cy.get(".step-content")
       .eq(1)
@@ -26,6 +29,8 @@ export class LayoutsPage {
         cy.wrap(menu).find("button").contains("Try again").click();
       });
   }
+
+  //Stepper third section
   stepperThirdSection() {
     cy.get(".vertical")
       .find(".header")
@@ -41,6 +46,7 @@ export class LayoutsPage {
     }
   }
 
+  //Accordion Section
   accordionSection() {
     cy.get(".ng-star-inserted").then((menu) => {
       cy.wrap(menu)

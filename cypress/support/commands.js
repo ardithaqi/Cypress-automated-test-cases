@@ -38,6 +38,6 @@
 
 Cypress.Commands.add("openHomePage", () => {
   cy.visit("/");
-  cy.get("nav nb-select").click();
-  cy.get(".options-list").find("nb-option").eq(1).click();
+  // cy.get("nav nb-select").click();
+  // cy.get(".options-list").find("nb-option").eq(1).click();
 });

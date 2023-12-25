@@ -54,6 +54,12 @@ export class NavigationPage {
     cy.contains("Tooltip").click();
   }
 
+  //Extra components Page
+  ExtraComponentsPage() {
+    groupNamesItem("Extra Components");
+    cy.contains("Calendar").click();
+  }
+
   //Tables & Data Page
   tableSmartTablePage() {
     groupNamesItem("Tables & Data");
@@ -63,26 +69,27 @@ export class NavigationPage {
     groupNamesItem("Tables & Data");
     cy.contains("Tree Grid").click();
   }
+
+  //Auth Page
   AuthLoginPage() {
     groupNamesItem("Auth");
     cy.contains("Login").click();
+    // cy.get("nb-card-header").find("nav a").click();
   }
   AuthRegisterPage() {
     groupNamesItem("Auth");
     cy.contains("Register").click();
+    // cy.get("nb-card-header").find("nav a").click();
   }
   AuthRequestPasswordPage() {
     groupNamesItem("Auth");
     cy.contains("Request Password").click();
+    // cy.get("nb-card-header").find("nav a").click();
   }
   AuthResetPasswordPage() {
     groupNamesItem("Auth");
     cy.contains("Reset Password").click();
-  }
-
-  ExtraComponentsPage() {
-    groupNamesItem("Extra Components");
-    cy.contains("Calendar").click();
+    // cy.get("nb-card-header").find("nav a").click();
   }
 }
 

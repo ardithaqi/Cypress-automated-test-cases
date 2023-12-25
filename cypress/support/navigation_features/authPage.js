@@ -1,6 +1,7 @@
 export class AuthPage {
+  //Login section
   loginSection() {
-    //write an invalid email, check for assertion and write the correct input
+    //Write an invalid email, check for assertion and write the correct input
     cy.get('[for="input-email"]').type("ardithaci");
     cy.contains("nb-card", "Login").click();
     cy.get(".form-control-group")
@@ -17,7 +18,7 @@ export class AuthPage {
         }
       });
 
-    //write an invalid passowrd, check for asserition and wirte the correct input
+    //Write an invalid passowrd, check for asserition and wirte the correct input
     cy.get('[placeholder="Password"]').type("asd");
     cy.contains("nb-card", "Login").click();
     cy.get(".form-control-group")
@@ -41,8 +42,10 @@ export class AuthPage {
 
     cy.get('[type="checkbox"]').check({ force: true });
     cy.get("button").click();
+    cy.wait(1000);
   }
 
+  //Register section
   registerSection() {
     cy.get('[placeholder="Full name"]').type("Ardii");
     cy.get('[placeholder="Email address"]').type("Ardithaci1@test.com");
@@ -50,16 +53,22 @@ export class AuthPage {
     cy.get('[placeholder="Confirm Password"]').type("arditest");
     cy.get('[type="checkbox"]').check({ force: true });
     cy.get("button").click();
+    cy.wait(1000);
   }
+
+  //Request password section
   requestPasswordSection() {
     cy.get('[placeholder="Email address"]').type("ardithaci@test.com");
     cy.get("button").click();
+    cy.wait(1000);
   }
 
+  //Reset password section
   resetPasswordSection() {
     cy.get('[placeholder="New Password"]').type("arditest1");
     cy.get('[placeholder="Confirm Password"]').type("arditest1");
     cy.get("button").click();
+    cy.wait(1000);
   }
 }
 

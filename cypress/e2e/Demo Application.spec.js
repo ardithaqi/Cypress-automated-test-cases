@@ -1,5 +1,6 @@
 /// <reference types="cypress" />
 
+import { onNavbarButtons } from "../support/navigation_features/Navigation/navbarButtons";
 import { navigateTo } from "../support/navigation_features/Navigation/navigationPage";
 import { onAuthPage } from "../support/navigation_features/authPage";
 import { onExtraComponents } from "../support/navigation_features/extraComponentsPage";
@@ -13,6 +14,10 @@ describe("Testing Navigation Features", () => {
     cy.openHomePage();
   });
 
+  it.only("Verify navbar buttons", () => {
+    onNavbarButtons.navbarButtons();
+  });
+
   it.only("Verify navigation features", () => {
     navigateTo.layoutAccordionPage();
     navigateTo.layoutStepperPage();
@@ -23,8 +28,10 @@ describe("Testing Navigation Features", () => {
     navigateTo.modalPopoverPage();
     navigateTo.modalToastrPage();
     navigateTo.modalTooltipPage();
+    navigateTo.ExtraComponentsPage();
     navigateTo.tableSmartTablePage();
     navigateTo.tableTreeGridPage();
+    navigateTo.AuthLoginPage();
   });
 
   it("Layout Page", () => {
@@ -71,7 +78,7 @@ describe("Testing Navigation Features", () => {
     onTablePage.treeGridSection();
   });
 
-  it.only("Auth Page", () => {
+  it("Auth Page", () => {
     navigateTo.AuthLoginPage();
     onAuthPage.loginSection();
     navigateTo.AuthRegisterPage();

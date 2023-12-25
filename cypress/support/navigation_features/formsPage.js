@@ -1,4 +1,5 @@
 export class FormsPage {
+  //Forms Section
   formsSection() {
     //Inline form
     cy.contains("nb-card", "Inline form")
@@ -114,6 +115,7 @@ export class FormsPage {
                     expect(firstName).to.equal(firstNameLabel);
                   });
               });
+            //assertion
             cy.wrap(firstRow)
               .find('[for="inputLastName"]')
               .invoke("text")
@@ -126,6 +128,7 @@ export class FormsPage {
                   });
               });
           });
+
         cy.wrap(blockMenu)
           .find(".row")
           .eq(1)
@@ -151,6 +154,7 @@ export class FormsPage {
       });
   }
 
+  //Datepicker section
   datepickerSection() {
     let date = new Date();
     // date.setDate(date.getDate());
@@ -160,8 +164,8 @@ export class FormsPage {
     let futureDate = date.getDate() + 7;
     let dateToAssert = `${currentMonth} ${currentDate}, ${currentYear}`;
     let dateToAssert1 = `${currentMonth} ${currentDate}, ${currentYear} - ${currentMonth} ${futureDate}, ${currentYear}`;
-
     console.log(date);
+
     // Common Datepicker
     cy.contains("nb-card", "Common Datepicker")
       .find("input")
