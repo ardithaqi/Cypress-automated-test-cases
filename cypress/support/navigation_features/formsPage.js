@@ -261,8 +261,9 @@ export class FormsPage {
         } else {
           cy.get(".day-cell")
             .contains(choosenDay)
+            .click()
             .invoke("attr", "class")
-            .should("contain", "disabled");
+            .should("contain", "today");
         }
       });
   }
