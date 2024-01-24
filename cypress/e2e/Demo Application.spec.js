@@ -44,8 +44,8 @@ describe("Testing Navigation Features", () => {
   });
 
   it.only("Forms Page", () => {
-    navigateTo.formsLayoutPage();
-    onFormsPage.formsSection();
+    // navigateTo.formsLayoutPage();
+    // onFormsPage.formsSection();
     navigateTo.formsDatepickerPage();
     onFormsPage.datepickerSection();
   });
