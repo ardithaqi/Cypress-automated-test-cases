@@ -10,7 +10,7 @@ To Execute the Cypress Test Suite:
 - Start the website by running npm start.
 - Open a new terminal and execute npx cypress open.
 - Run the test cases from the Cypress interface.
-  The Cypress test cases are organized within the /cypress/e2e directory. Each test file focuses on specific functionalities and follows a structured naming convention for easy understanding and maintenance.
+  The Cypress test cases are organized within the /cypress/e2e & /cypress/support directory. Each test file focuses on specific functionalities and follows a structured naming convention for easy understanding and maintenance.
 
 Credits & License
 This project is based on the Ngx-Admin Angular 8 application from akveo.com.
