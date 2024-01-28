@@ -1,3 +1,8 @@
+let name = Cypress.env("CYPRESS_NAME");
+let email = Cypress.env("CYPRESS_EMAIL");
+let password = Cypress.env("CYPRESS_PASSWORD");
+let newPassword = Cypress.env("CYPRESS_NEW_PASSWORD");
+
 export class AuthPage {
   //Login section
   loginSection() {
@@ -8,13 +13,13 @@ export class AuthPage {
       .eq(0)
       .find("p")
       .invoke("text")
-      .then((email) => {
-        cy.wrap(email).should("contain", "Email should be the real one!");
+      .then((emailInput) => {
+        cy.wrap(emailInput).should("contain", "Email should be the real one!");
         if (
-          email.includes("Email should be the real one!") ||
-          email.includes("Email is required!")
+          emailInput.includes("Email should be the real one!") ||
+          emailInput.includes("Email is required!")
         ) {
-          cy.get("#input-email").clear().type("ardithaci@test.com");
+          cy.get("#input-email").clear().type(email);
         }
       });
 
@@ -25,18 +30,18 @@ export class AuthPage {
       .eq(1)
       .find("p")
       .invoke("text")
-      .then((password) => {
-        cy.wrap(password).should(
+      .then((passwordInput) => {
+        cy.wrap(passwordInput).should(
           "contain",
           "Password should contain from 4 to 50 characters"
         );
         if (
-          password.includes(
+          passwordInput.includes(
             "Password should contain from 4 to 50 characters"
           ) ||
-          password.includes("Password is required!")
+          passwordInput.includes("Password is required!")
         ) {
-          cy.get('[placeholder="Password"]').type("arditest");
+          cy.get('[placeholder="Password"]').type(password);
         }
       });
 
@@ -47,10 +52,10 @@ export class AuthPage {
 
   //Register section
   registerSection() {
-    cy.get('[placeholder="Full name"]').type("Ardii");
-    cy.get('[placeholder="Email address"]').type("Ardithaci1@test.com");
-    cy.get('[placeholder="Password"]').type("arditest");
-    cy.get('[placeholder="Confirm Password"]').type("arditest");
+    cy.get('[placeholder="Full name"]').type(name);
+    cy.get('[placeholder="Email address"]').type(email);
+    cy.get('[placeholder="Password"]').type(password);
+    cy.get('[placeholder="Confirm Password"]').type(password);
     cy.get('[type="checkbox"]').check({ force: true });
     cy.get("button").click();
     cy.wait(1000);
@@ -58,15 +63,15 @@ export class AuthPage {
 
   //Request password section
   requestPasswordSection() {
-    cy.get('[placeholder="Email address"]').type("ardithaci@test.com");
+    cy.get('[placeholder="Email address"]').type(email);
     cy.get("button").click();
     cy.wait(1000);
   }
 
   //Reset password section
   resetPasswordSection() {
-    cy.get('[placeholder="New Password"]').type("arditest1");
-    cy.get('[placeholder="Confirm Password"]').type("arditest1");
+    cy.get('[placeholder="New Password"]').type(newPassword);
+    cy.get('[placeholder="Confirm Password"]').type(newPassword);
     cy.get("button").click();
     cy.wait(1000);
   }
