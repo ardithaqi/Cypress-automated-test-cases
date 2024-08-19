@@ -79,7 +79,7 @@ describe("Testing Navigation Features", () => {
     onTablePage.treeGridSection();
   });
 
-  it.only("Auth Page", () => {
+  it("Auth Page", () => {
     navigateTo.AuthLoginPage();
     onAuthPage.loginSection();
     navigateTo.AuthRegisterPage();
