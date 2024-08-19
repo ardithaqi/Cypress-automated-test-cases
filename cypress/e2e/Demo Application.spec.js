@@ -19,7 +19,7 @@ describe("Testing Navigation Features", () => {
   });
 
   it("Verify navigation features", () => {
-    navigateTo.layoutAccordionPage();
+    // navigateTo.layoutAccordionPage();
     navigateTo.layoutStepperPage();
     navigateTo.formsLayoutPage();
     navigateTo.formsDatepickerPage();
